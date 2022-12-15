@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
-# set up load balancer
-apt update
-apt install -y haproxy
-echo "\
-frontend http
+# Installs and setup haproxy on my lb-01 server
+
+apt-get -y update
+apt-get install -y haproxy
+
+echo "ENABLED=1" > /etc/default/haproxy
+
+# Listen to web1 and web2 servers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+echo "
+   listen load_balancer
    bind *:80
-   default_backend web-backend
-backend web-backend
+   mode http
    balance roundrobin
-   server web-01 3.235.178.105:80 check
-   server web-02 3.235.75.111:80 check
-" | tee -a /etc/haproxy/haproxy.cfg
+   option httpclose
+   option forwardfor
+   server 29434-web-01 44.200.48.169:80 check
+   server 29434-web-02 3.238.85.27:80 check
+" >> /etc/haproxy/haproxy.cfg
 
 service haproxy restart

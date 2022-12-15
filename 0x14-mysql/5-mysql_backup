@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# script generates MySQL dump of all databases
+# This script to compress my sqldump file
+#+ and save it in another physical location.
 
-mysqldump -u root -p"$1" --all-databases > backup.sql
-tar -czvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
+mysqldump --all-databases -u root --password="$1" > backup.sql
+day=$(date +"%d")
+month=$(date +"%m")
+year=$(date +"%Y")
+file_name="$day-$month-$year.tar.gz"
+tar -cvzf "$file_name" backup.sql

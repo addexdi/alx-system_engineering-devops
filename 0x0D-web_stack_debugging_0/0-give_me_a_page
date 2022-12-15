@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-# Starts apache server
+# Paste the command(s) you used to fix the issue in your answer file.
+echo "Hello Holberton" > /var/www/html/index.html
+service apache2 restart
 
-/etc/init.d/apache2 start

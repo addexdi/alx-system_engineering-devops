@@ -17,9 +17,6 @@
 #   If any other or no arguments are passed, displays
 #+  "Usage: manage_my_process {start|stop|restart}"
 
-#!/usr/bin/env bash
-# Manages 'manage_my_process'
-
 if [ "${1}" == "start" ]
 then
     ./manage_my_process &

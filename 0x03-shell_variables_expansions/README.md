@@ -1,2 +1,1 @@
-#!/bin/bash
-This is shell, variable project
+This section shows how to use different shell expansions
