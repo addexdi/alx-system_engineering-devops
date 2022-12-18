@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# using ping ICMP to make sure that a network device remains online or to troubleshoot issues on the network.
+# Pings an IP address received as a string argument 5 times.
 
-args=("$@")
-
-if [ -z "${args[0]}" ]
+if [ "$#" -eq 0 ]
 then
-    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+  echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 else
-    sudo ping -c 5 "${args[0]}"
+  ping -c 5 "$1"
 fi

@@ -1,5 +1,5 @@
-# use exec resource to kill process killmenow
-
-exec { 'conditions':
-command => '/usr/bin/pkill killmenow',
+# Using exec to kill a process named killmenow
+exec {'kill-killmenow':
+  command => 'pkill killmenow',
+  path    => '/usr/bin';
 }

@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Connects my local machine to web-01 alx server
-
-ssh -i ~/.ssh/school ubuntu@44.200.48.169
+#connecting to my server using private key
+ssh -i ~/.ssh/school ubuntu@35.196.96.41

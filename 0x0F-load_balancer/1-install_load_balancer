@@ -1,21 +1,11 @@
 #!/usr/bin/env bash
-# Installs and setup haproxy on my lb-01 server
+# Install the load balancer
 
-apt-get -y update
-apt-get install -y haproxy
 
-echo "ENABLED=1" > /etc/default/haproxy
-
-# Listen to web1 and web2 servers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-echo "
-   listen load_balancer
-   bind *:80
-   mode http
-   balance roundrobin
-   option httpclose
-   option forwardfor
-   server 29434-web-01 44.200.48.169:80 check
-   server 29434-web-02 3.238.85.27:80 check
-" >> /etc/haproxy/haproxy.cfg
-
-service haproxy restart
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install haproxy
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
+sudo sed -i "$ a\listen 540-lb-01\n\tbind *:80\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 540-web-02 3.234.218.189:80 check\n\tserver 540-web-01 35.196.96.41:80 check" /etc/haproxy/haproxy.cfg
+sudo service haproxy start

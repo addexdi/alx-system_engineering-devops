@@ -1,1 +1,1 @@
-This section shows how to use different shell expansions
+please read this file as it contains explanations to the codes

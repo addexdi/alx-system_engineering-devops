@@ -1,1 +1,1 @@
-This is a shell permission Readme text file
+This repository contains shell permission commands. How to execute and change individual and group access

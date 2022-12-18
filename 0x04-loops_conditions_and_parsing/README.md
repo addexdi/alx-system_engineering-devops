@@ -1,1 +1,1 @@
-This is for loops in bash scripting
+# 0x04-loops_conditions_and_parsing

@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Display list of Ip address running on the machine
+# Displays all acive IPv4 addresses.
 
-ip=$(ip address| awk '/inet/ {print $2}' | grep -v ^::1 | grep -v ^127)
-
-#displaying IP addresses
-echo "$ip"
+ifconfig -a | grep "inet addr" | cut -d " " -f12 | cut -d ":" -f2

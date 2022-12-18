@@ -1,3 +1,5 @@
-# This Fixes a php file typo
-
-exec { '/usr/bin/env sed -i "s/phpp/php/g" /var/www/html/wp-settings.php': }
+# puppet file to automate a 500 error fix
+exec { 'fixed-phpp':
+  command => "sed -i 's/phpp/php/g' /var/www/html/wp-settings.php",
+  path    => '/bin';
+}

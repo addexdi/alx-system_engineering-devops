@@ -1,2 +1,2 @@
-# alx-system_engineering-devops
-My first code as a devop
+#!/bin/bash
+This repository is to test executable commands

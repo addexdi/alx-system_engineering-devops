@@ -1,1 +1,1 @@
-## CONFIGURATION MANAGEMENT USING PUPPET
+Learning to use puppet configuration management

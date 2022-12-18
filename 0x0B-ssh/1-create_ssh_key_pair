@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Create ssh key pair with secure passphrase
-
-ssh-keygen  -b 4096 -f school -N betty
+# Create an ssh key pair with betty as the passphrase
+# Number of bits = 4096
+ssh-keygen -t rsa -f school -b 4096 -N betty

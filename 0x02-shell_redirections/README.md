@@ -1,1 +1,1 @@
-All scripts here will make one redirection in the shell or the other
+Writing shell redirections commands and making them executable files

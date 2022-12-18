@@ -1,16 +1,9 @@
 #!/usr/bin/env bash
-# This script configures Nginx so that its HTTP response
+#to configure a new server
 
-apt-get -y update
-apt-get -y install nginx
-
-service nginx start
-
-ufw allow  'Nginx HTTP' #nginx should be listed on port 80
-echo 'Holberton School' > /var/www/html/index.nginx-debian.html
-sed -i "46i rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-sed -i "46i error_page 404 /custom_404.html;" /etc/nginx/sites-available/default
-sudo sed -i "/server_name _;/ a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
-
-service nginx restart
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
+echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
+sudo service nginx restart
